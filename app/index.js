@@ -1,7 +1,7 @@
 'use strict';
-import './style.scss';
-import mainBgImage from './test.jpg';
-import jorgeImage from './jorge.jpg';
+import './assets/scss/style.scss';
+import mainBgImage from './assets/img/test.jpg';
+import jorgeImage from './assets/img/jorge.jpg';
 
 try {
 document.getElementById('mainBgImage').src = mainBgImage;

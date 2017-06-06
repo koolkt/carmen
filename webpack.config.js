@@ -3,25 +3,25 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require("path");
 
 var homeHtml = new HtmlWebpackPlugin({
-  template: '!!handlebars!' + __dirname + '/app/index.hbs',
+  template: __dirname + '/app/templates/home_index.hbs',
   filename: 'index.html',
   inject: 'body'
 });
 
 var campaigneHtml = new HtmlWebpackPlugin({
-  template: '!!handlebars!' + __dirname + '/app/campaigne_index.hbs',
+  template: __dirname + '/app/templates/campaigne_index.hbs',
   filename: 'campaigne.html',
   inject: 'body'
 });
 
 var donationHtml = new HtmlWebpackPlugin({
-  template: '!!handlebars!' + __dirname + '/app/donation-index.hbs',
+  template: __dirname + '/app/templates/donation_index.hbs',
   filename: 'donation.html',
   inject: 'body'
 });
 
 var corporateDonationHtml = new HtmlWebpackPlugin({
-  template: '!!handlebars!' + __dirname + '/app/corporate_donation-index.hbs',
+  template: __dirname + '/app/templates/corporate_donation_index.hbs',
   filename: 'corporate-donation.html',
   inject: 'body'
 });
@@ -71,8 +71,8 @@ module.exports = {
               query: {
                   debug: true,
                   partialDirs: [
-                      path.join(__dirname, 'pages/'),
-                      path.join(__dirname, 'templates/')
+                      path.join(__dirname, 'app/pages/'),
+                      path.join(__dirname, 'app/templates/')
                   ]
               }
           },
