@@ -8,7 +8,7 @@ If you don't have webpack installed globally do so by running `npm install webpa
 - `npm run build` will build the site for development use. By default site are output in the `dist/` folder
 - `npm run production` will output a minified build for production use.
 - `npm run clean` will remove the `/dist` folder.
-
+- `npm run deploy` will deploy to the gh-pages branch of the repo.
 ## Github Pages
 
 After you've built site site, you can publish it to Github Pages by using a `git subtree push`.  
