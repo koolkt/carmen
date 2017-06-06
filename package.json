@@ -8,6 +8,7 @@
     "clean": "rm -rf dist/",
     "build": "webpack",
     "production": "webpack -p",
+    "deploy": "rm -rf dist/ && webpack -p && ./bin/deploy",
     "start": "webpack-dev-server"
   },
   "repository": {
