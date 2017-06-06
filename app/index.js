@@ -1,5 +1,16 @@
 'use strict';
 import './style.scss';
+import mainBgImage from './test.jpg';
+import jorgeImage from './jorge.jpg';
+
+try {
+document.getElementById('mainBgImage').src = mainBgImage;
+document.getElementById('jorgeImage').src = jorgeImage;
+    document.getElementById('dart-campaign-img').src = mainBgImage;
+} catch (e) {
+    console.log('Error');
+}
+
 
 var GLOBALSTATE = {
     locale: navigator.language.slice(0,2),
