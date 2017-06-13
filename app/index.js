@@ -2,11 +2,18 @@
 import './assets/scss/style.scss';
 import mainBgImage from './assets/img/test.jpg';
 import jorgeImage from './assets/img/jorge.jpg';
+import carmenLogo from './assets/img/carmen-logo.png';
 
 try {
-document.getElementById('mainBgImage').src = mainBgImage;
-document.getElementById('jorgeImage').src = jorgeImage;
-    document.getElementById('dart-campaign-img').src = mainBgImage;
+    const mainBgImageElem = document.getElementById('mainBgImage');
+    const jorgeTestimonialImgElem = document.getElementById('jorgeImage');
+    const campaignImageElem = document.getElementById('dart-campaign-img');
+    const headerLogoElem = document.getElementById('header-logo');
+
+    if (mainBgImageElem) { mainBgImageElem.src = mainBgImage }
+    if (jorgeTestimonialImgElem) { jorgeTestimonialImgElem.src = jorgeImage }
+    if (campaignImageElem) { campaignImageElem.src = mainBgImage }
+    if (headerLogoElem) { headerLogoElem.src = carmenLogo }
 } catch (e) {
     console.log('Error');
 }
@@ -22,12 +29,14 @@ const translations = {
         corpDonMenuLink:'Don corporatif',
         donateButton: 'Faites un don',
         donationWallButton: 'Mur des donateurs',
+        aboutMenuLink: 'À propos',
     },
     en: {
         campaignMenuLink: 'Fundraising Campaign',
         corpDonMenuLink:'Corporate donation',
         donateButton: 'Donate now',
         donationWallButton: 'Donors\' wall',
+        aboutMenuLink: 'About',
     }
 };
 

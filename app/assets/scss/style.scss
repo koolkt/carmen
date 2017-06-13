@@ -516,7 +516,7 @@ body {
 }
 
 .top-menu-logo {
-    height: 60px;
+    height: 100px;
     width: auto;
 }
 
@@ -551,10 +551,12 @@ html {
   box-sizing: inherit;
 }
 
-section {
-    padding: 100px 10px;
-}
-
-.container {
-    margin: 0px 300px;
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0!important;
+    background: grey;
 }
