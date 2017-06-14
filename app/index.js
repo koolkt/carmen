@@ -30,6 +30,10 @@ const translations = {
         donateButton: 'Faites un don',
         donationWallButton: 'Mur des donateurs',
         aboutMenuLink: 'À propos',
+        homeLightboxTitle: 'Sauvons la maison de Georges Bizet',
+        homeLightboxP: "Lancement de la campagne de financement participatif pour sauver la maison de Georges Bizet et créer l'espace Carmen. L'espace sera destiné à être intégré au futur pôle culturel, scientifique et touristique de la ville de Bougival: le Centre Européen de Musique (CEM).",
+        sendButton: 'Envoyer',
+        donateButton: 'donnez maintenant!',
     },
     en: {
         campaignMenuLink: 'Fundraising Campaign',
@@ -37,6 +41,10 @@ const translations = {
         donateButton: 'Donate now',
         donationWallButton: 'Donors\' wall',
         aboutMenuLink: 'About',
+        homeLightboxTitle: 'Lets save the House of Georges Bizet',
+        homeLightboxP: "Launching of the crowd funding campaign to save the house of Georges Bizet and create the space Carmen. This space is intended to be integrated into the future cultural, scientific and touristic center of the city of Bougival: the European Center of Music (CEM).",
+        sendButton: 'Submit',
+        donateButton: 'donate now!',
     }
 };
 
@@ -51,7 +59,7 @@ function changeLanguageButton(locale) {
 function setTranslations (locale, defaultLocale) {
     const currentTranslations = translations[locale] || translations[defaultLocale || 'fr'];
     Object.keys(currentTranslations).forEach(
-        key => document.getElementById(key).innerText = currentTranslations[key]
+        key => { if (document.getElementById(key)) document.getElementById(key).innerText = currentTranslations[key]; }
     );
     changeLanguageButton(locale);
 }
