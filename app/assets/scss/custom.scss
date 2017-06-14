@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css?family=Passion+One');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+$font-stack: 'Open Sans', Helvetica, Arial, Lucida, sans-serif;
+
+$primary-color: #333;
+
+body {
+    color: $primary-color;
+}
+
+.top-menu {
+    list-style: none;
+    display: flex;
+    margin-bottom: 0;
+    align-items: center;
+}
+
+.top-menu > li {
+    font-size: 14px;
+    padding: 10px;
+}
+
+.top-menu > li > a {
+    text-decoration: none;
+    color: #484848;
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    line-height: 23px;
+    font-weight: 500;
+    top: 0;
+    background-color: #fff;
+    width: 100%;
+    min-height: 100px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    z-index: 1000;
+}
+
+.top-menu-logo {
+    height: 100px;
+    width: auto;
+}
+
+.video-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.bg-video-container {
+    position: relative;
+    height: 30vh;
+    overflow: hidden;
+}
+
+.top-nav {
+    display: flex;
+    align-items: center;
+}
+
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0!important;
+    background: grey;
+}
+
+blockquote {
+    font-style: italic;
+    padding: 8px;
+    margin: 5px;
+    background-image: url(../img/openquote1.gif);
+    background-position: top left;
+    background-repeat: no-repeat;
+    text-indent: 23px;
+}
+
+blockquote.style1 span {
+    display: block;
+    background-image: url(../img/closequote1.gif);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Passion One', cursive;
+}
+
+body, input, textarea, select {
+    font-family: 'Open Sans', Helvetica, Arial, Lucida, sans-serif;
+}
+.top-menu {
+    display: none;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+.first-section {
+    margin-top: 50px;
+}
+
+video { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+ background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+}
+
+/* Larger than mobile */
+@media (min-width: 400px) {
+    .top-menu {
+        display: flex;
+    }
+    section {
+        margin-bottom: 100px;
+    }
+    .first-section {
+        margin-top: 100px;
+    }
+    .bg-video-container {
+        height: 70vh;
+    }
+    .ambasadors-row {
+        margin-top: 100px;
+    }
+
+}
+
+html, body {
+    height: 100%;
+}
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {}
+
+/* Larger than tablet */
+@media (min-width: 750px) {}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {}
+

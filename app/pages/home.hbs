@@ -1,46 +1,27 @@
-<div class="bg-video-container">
-    <img id="mainBgImage" alt="background" src="test.jpg" style="width: 100%;"/>
-</div>
-<div class="main-container">
-    <section id="section1">
-        <div class="container">
-            <h3>À propos</h3>
-            <div style="display: flex;">
-                <img style="border-radius: 50%; width: 164px; height: 164px;flex:0 164px;" id="jorgeImage" alt="jorge" src=""/>
-                <p style="margin: 0px 30px; flex:0 80%;">
-                    Sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut. Sagittis vitae et leo duis ut diam quam nulla porttitor massa id neque aliquam.                    Sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut. Sagittis vitae et leo duis ut diam quam nulla porttitor massa id neque aliquam.                    Sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut. Sagittis vitae et leo duis ut diam quam nulla porttitor massa id neque aliquam.                    Sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut. Sagittis vitae et leo duis ut diam quam nulla porttitor massa id neque aliquam.                    Sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut. Sagittis vitae et leo duis ut diam quam nulla porttitor massa id neque aliquam.
-                </p>
-            </div>
+<div class="main-bg-video-container" style="display: flex;justify-content: center;align-items: center;height: 100%; background: rgba(0, 0, 0, 0.40);">
+    <div class="row main-lightbox-container">
+        <h1 class="main-lightbox-title">Sauvons la maison de Georges Bizet</h1>
+        <p class="main-lightbox-p">Neque aliquam vestibulum morbi blandit cursus! Blandit aliquam etiam erat velit, scelerisque in dictum non, consectetur a erat nam at lectus urna duis convallis convallis tellus, id interdum velit laoreet?</p>
+                <div class="main-lightbox-form-conatiner">
+            <input class="main-lightbox-input" name="" type="email" value="Laissez votre mail"/>
+            <button class="main-lightbox-input-button" >Envoyer</button>
         </div>
-    </section>
-    <section id="section2">
-        <div class="container">
-            <div style="display:flex;">
-                <div>
-                    <img id="dart-campaign-img" alt="xxx" src="" style="height:300px; width: auto;"/>
-                </div>
-                <div>Exclusivité</div>
-            </div>
+        <div class="main-lightbox-buttons-container">
+            <button>
+                donate now!
+            </button>
+            <button>
+                Learn more about the campaign
+            </button>
         </div>
-    </section>
-    <section id="section3" style="height: 800px;">
-        <div class="container">
-            <video width="100%" controls>
-                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
-                Your browser does not support HTML5 video.
-            </video>
-        </div>
-    </section>
-    <section id="section4">
-        <div class="container">
-            <h3>ESPACE DANSE</h3>
-            
-            <p>Elise Charbonneau</p>
-            <p>Director, Espace danse Campaign</p>
-            <p>Director, Fundraising and Events, Les Grands Ballets Canadiens de Montréal</p>
-            <p>echarbonneau@grandsballets.com</p>
-            <p>514 849-8681</p>
-        </div>
-    </section>
+    </div>
+    <video
+        class="main-video-bg"
+        poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg"
+        id="bgvid"
+        playsinline autoplay muted loop>
+        <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+        <source src="https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/1521/8/207608536/708419805.mp4?token=1497460736-0x1f75430f684299e8b3ba53515997de4391132e2a" type="video/mp4">
+        <!-- <source src="https://ak2.picdn.net/shutterstock/videos/4724462/preview/stock-footage-timelapse-shot-of-house-at-night.mp4" type="video/mp4"> -->
+    </video>
 </div>

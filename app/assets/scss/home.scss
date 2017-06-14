@@ -1,0 +1,74 @@
+
+@import url('https://fonts.googleapis.com/css?family=Bevan');
+video { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+ background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+}
+
+.main-lightbox-container {
+    max-width: 700px;
+}
+
+.main-lightbox-title {
+    font-family: 'Bevan', sans-serif;
+    text-align: center;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.main-lightbox-p {
+    color: white;
+    text-align: justify;
+}
+
+.main-lightbox-buttons-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: white;
+}
+
+.main-lightbox-form-conatiner {
+    display:flex;
+    justify-content: space-around;
+}
+
+.main-lightbox-input {
+    border-top-right-radius: 0!important;
+    border-bottom-right-radius: 0!important;
+    color: white;
+    font-weight: bold;
+}
+
+.main-lightbox-input-button {
+    border-top-left-radius: 0!important;
+    border-bottom-left-radius: 0!important;
+    border-top-color: white;
+    border-top-style: solid;
+    border-top-width: 0.1rem;
+    border-right-color: white;
+    border-right-style: solid;
+    border-right-width: 0.1rem;
+    border-bottom-color: white;
+    border-bottom-style: solid;
+    border-bottom-width: 0.1rem;
+    border-left-color: white;
+    border-left-style: solid;
+    border-left-width: 0;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+}
