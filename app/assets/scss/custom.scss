@@ -41,7 +41,7 @@ body {
     -moz-transition: all 0.2s ease-in-out;
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
-    position: relative;
+    position: fixed;
     z-index: 1000;
 }
 
@@ -87,22 +87,22 @@ html {
     background: grey;
 }
 
-blockquote {
-    font-style: italic;
-    padding: 8px;
-    margin: 5px;
-    background-image: url(../img/openquote1.gif);
-    background-position: top left;
-    background-repeat: no-repeat;
-    text-indent: 23px;
-}
+// blockquote {
+//     font-style: italic;
+//     padding: 8px;
+//     margin: 5px;
+//     background-image: url(../img/openquote1.gif);
+//     background-position: top left;
+//     background-repeat: no-repeat;
+//     text-indent: 23px;
+// }
 
-blockquote.style1 span {
-    display: block;
-    background-image: url(../img/closequote1.gif);
-    background-repeat: no-repeat;
-    background-position: bottom right;
-}
+// blockquote.style1 span {
+//     display: block;
+//     background-image: url(../img/closequote1.gif);
+//     background-repeat: no-repeat;
+//     background-position: bottom right;
+// }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Passion One', cursive;
