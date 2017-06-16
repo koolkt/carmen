@@ -47,7 +47,7 @@ body {
 
 .top-menu-logo {
     height: 100px;
-    width: auto;
+    width: 150px;
 }
 
 .video-bg {
@@ -116,7 +116,7 @@ body, input, textarea, select {
 }
 
 section {
-    margin-bottom: 50px;
+    padding: 50px 0;
 }
 
 .first-section {
@@ -126,13 +126,24 @@ section {
 .top-menu > li > a {
     font-weight: bold;
 }
+
+html, body {
+    height: 100%;
+}
+
+.page-rectangular-header {
+    text-align: center;
+    background: gainsboro;
+    padding: 50px;
+    margin-bottom: 100px;
+}
 /* Larger than mobile */
 @media (min-width: 400px) {
     .top-menu {
         display: flex;
     }
     section {
-        margin-bottom: 100px;
+        padding: 100px 0;
     }
     .first-section {
         margin-top: 100px;
@@ -143,11 +154,9 @@ section {
     .ambasadors-row {
         margin-top: 100px;
     }
-
-}
-
-html, body {
-    height: 100%;
+    .campaign-video {
+        height: 500px;
+    }
 }
 /* Larger than phablet (also point when grid becomes active) */
 @media (min-width: 550px) {}

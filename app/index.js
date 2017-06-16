@@ -3,21 +3,24 @@ import './assets/scss/style.scss';
 import mainBgImage from './assets/img/test.jpg';
 import jorgeImage from './assets/img/jorge.jpg';
 import carmenLogo from './assets/img/carmen-logo.png';
+import aboutImage from './assets/img/about_carmen.png'
 
-try {
-    const mainBgImageElem = document.getElementById('mainBgImage');
-    const jorgeTestimonialImgElem = document.getElementById('jorgeImage');
-    const campaignImageElem = document.getElementById('dart-campaign-img');
-    const headerLogoElem = document.getElementById('header-logo');
-
-    if (mainBgImageElem) { mainBgImageElem.src = mainBgImage }
-    if (jorgeTestimonialImgElem) { jorgeTestimonialImgElem.src = jorgeImage }
-    if (campaignImageElem) { campaignImageElem.src = mainBgImage }
-    if (headerLogoElem) { headerLogoElem.src = carmenLogo }
-} catch (e) {
-    console.log('Error');
+function setImages (images) {
+    Object.keys(images).forEach(id => {
+        const elem = document.getElementById(id)
+        if (elem) {
+            elem.src = images[id];
+        }
+    });
 }
 
+setImages({
+    mainBgImage,
+    jorgeImage,
+    'dart-campaign-img': mainBgImage,
+    'header-logo': carmenLogo,
+    'about-top-image': aboutImage,
+});
 
 var GLOBALSTATE = {
     locale: navigator.language.slice(0,2),

@@ -2,30 +2,15 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require("path");
 
-var homeHtml = new HtmlWebpackPlugin({
-  template: __dirname + '/app/templates/home_index.hbs',
-  filename: 'index.html',
-  inject: 'body'
-});
+function generatePage (pageName) {
+    return new HtmlWebpackPlugin({
+        template: __dirname + `/app/templates/${pageName.replace('-', '_')}_index.hbs`,
+        filename: `${pageName === 'home' ? 'index' : pageName}.html`,
+        inject: 'body'
+    });
+}
 
-var campaigneHtml = new HtmlWebpackPlugin({
-  template: __dirname + '/app/templates/campaigne_index.hbs',
-  filename: 'campaigne.html',
-  inject: 'body'
-});
-
-var donationHtml = new HtmlWebpackPlugin({
-  template: __dirname + '/app/templates/donation_index.hbs',
-  filename: 'donation.html',
-  inject: 'body'
-});
-
-var corporateDonationHtml = new HtmlWebpackPlugin({
-  template: __dirname + '/app/templates/corporate_donation_index.hbs',
-  filename: 'corporate-donation.html',
-  inject: 'body'
-});
-
+var pages = ['corporate-donation', 'donation', 'campaigne', 'home', 'about'].map(generatePage);
 var ExtractTextPluginConfig = new ExtractTextPlugin('style.css');
 
 var entrypoint = process.env.npm_lifecycle_event === 'dev' ?
@@ -78,5 +63,5 @@ module.exports = {
           },
     ]
   },
-  plugins: [homeHtml, campaigneHtml, donationHtml, corporateDonationHtml, ExtractTextPluginConfig]
+  plugins: [...pages, ExtractTextPluginConfig]
 }
