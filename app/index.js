@@ -20,6 +20,7 @@ setImages({
     'dart-campaign-img': mainBgImage,
     'header-logo': carmenLogo,
     'about-top-image': aboutImage,
+    'campaigne-top-text': jorgeImage,
 });
 
 var GLOBALSTATE = {
