@@ -1,4 +1,5 @@
 .section-image-campagne {
+    transform:translateZ(0);
     font-weight: bold;
     padding: 86px;
     text-align: center;
@@ -14,4 +15,12 @@
     font-size: 23px;
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
     line-height: 1.7em;
+}
+
+.europa-logo {
+    height: 200px;
+    fill: white;
+    background: #e40025;
+    padding: 30px 20px;
+    stroke-opacity: 0;
 }

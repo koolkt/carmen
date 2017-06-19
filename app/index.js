@@ -3,7 +3,8 @@ import './assets/scss/style.scss';
 import mainBgImage from './assets/img/test.jpg';
 import jorgeImage from './assets/img/jorge.jpg';
 import carmenLogo from './assets/img/carmen-logo.png';
-import aboutImage from './assets/img/about_carmen.png'
+import aboutImage from './assets/img/about_carmen.png';
+import placidoImage from './assets/img/placido.jpg';
 
 function setImages (images) {
     Object.keys(images).forEach(id => {
@@ -21,6 +22,7 @@ setImages({
     'header-logo': carmenLogo,
     'about-top-image': aboutImage,
     'campaigne-top-text': jorgeImage,
+    'placido-circle': placidoImage,
 });
 
 var GLOBALSTATE = {
