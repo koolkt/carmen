@@ -5,6 +5,9 @@ import jorgeImage from './assets/img/jorge.jpg';
 import carmenLogo from './assets/img/carmen-logo.png';
 import aboutImage from './assets/img/about_carmen.png';
 import placidoImage from './assets/img/placido.jpg';
+import maisonImage from './assets/img/maison_gb.png';
+import villaImage from './assets/img/villa_v.jpg';
+import datchaImage from './assets/img/datcha.jpg';
 
 function setImages (images) {
     Object.keys(images).forEach(id => {
@@ -23,6 +26,9 @@ setImages({
     'about-top-image': aboutImage,
     'campaigne-top-text': jorgeImage,
     'placido-circle': placidoImage,
+    'maison-about': maisonImage,
+    'villa-about': villaImage,
+    'datcha-about': datchaImage,
 });
 
 var GLOBALSTATE = {
@@ -39,7 +45,7 @@ const translations = {
         homeLightboxTitle: 'Sauvons la maison de Georges Bizet',
         homeLightboxP: "Lancement de la campagne de financement participatif pour sauver la maison de Georges Bizet et créer l'espace Carmen. L'espace sera destiné à être intégré au futur pôle culturel, scientifique et touristique de la ville de Bougival: le Centre Européen de Musique (CEM).",
         sendButton: 'Envoyer',
-        donateButton: 'donnez maintenant!',
+        donateButton: 'Faites un don!',
     },
     en: {
         campaignMenuLink: 'Fundraising Campaign',
