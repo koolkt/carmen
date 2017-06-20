@@ -26,5 +26,3 @@ export const translations = {
         tTheProject: 'The project',
     }
 };
-
-/* translations.en. = */
