@@ -10,6 +10,27 @@ import villaImage from './assets/img/villa_v.jpg';
 import datchaImage from './assets/img/datcha.jpg';
 import dartLogo from './assets/img/dartagnans_logo.png';
 import { storageAvailable } from './assets/js/functions';
+import { translations } from './assets/js/locale';
+
+import petal1 from './assets/img/petal1.svg';
+import petal2 from './assets/img/petal2.svg';
+import petal3 from './assets/img/petal3.svg';
+import petal4 from './assets/img/petal4.svg';
+import petal5 from './assets/img/petal5.svg';
+
+const petals = ['x', petal1, petal2, petal3, petal4, petal5];
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+if(document.getElementsByClassName('wall-petal').length) {
+    Array.from(document.getElementsByClassName('wall-petal')).forEach(
+        elem => {
+            elem.style.background = `url(${petals[getRandomInt(1,5)]}) no-repeat`;
+        }
+    );
+}
 
 const LOCALSTORAGE_IS_AVIABLE = storageAvailable('localStorage')
 
@@ -34,6 +55,7 @@ setImages({
     'villa-about': villaImage,
     'datcha-about': datchaImage,
     'dartagnans-logo': dartLogo,
+    'placido-circle2': placidoImage,
 });
 
 function initLocale () {
@@ -64,33 +86,6 @@ function saveLocale(locale) {
     }
 }
 
-const translations = {
-    fr: {
-        tCampaignMenuLink: 'Campagne de financement',
-        tCorpDonMenuLink:'Don corporatif',
-        tDonationWallButton: 'Mur des donateurs',
-        tAboutMenuLink: 'Le projet',
-        tHomeLightboxTitle: 'Sauvons la maison de Georges Bizet',
-        tHomeLightboxP: "Lancement de la campagne de financement participatif pour sauver la maison de Georges Bizet et créer l'espace Carmen. L'espace sera destiné à être intégré au futur pôle culturel, scientifique et touristique de la ville de Bougival: le Centre Européen de Musique (CEM).",
-        tSendButton: 'Envoyer',
-        tDonateButton: 'Faites un don!',
-        tDiscoverProject: 'Découvrir le projet',
-        tHomeTitle: 'Sauvons la maison de Georges Bizet',
-    },
-    en: {
-        tHomeTitle: 'Lets Save the house of Georges Bizet',
-        tCampaignMenuLink: 'Fundraising Campaign',
-        tCorpDonMenuLink:'Corporate donation',
-        tDonationWallButton: 'Donors\' wall',
-        tAboutMenuLink: 'About',
-        tHomeLightboxTitle: 'Lets save the House of Georges Bizet',
-        tHomeLightboxP: "Launching of the crowd funding campaign to save the house of Georges Bizet and create the space Carmen. This space is intended to be integrated into the future cultural, scientific and touristic center of the city of Bougival: the European Center of Music (CEM).",
-        tSendButton: 'Submit',
-        tDonateButton: 'Donate now!',
-        tDiscoverProject: 'Discover the project',
-    }
-};
-
 function changeLanguageButton(locale) {
     if (locale === 'en') {
         document.getElementById('changeLangButton').innerText = 'French';
@@ -104,7 +99,7 @@ function setTranslations (locale, defaultLocale) {
     Object.keys(currentTranslations).forEach(
         key => {
             const elements = document.getElementsByClassName(key)
-            if (elements.length) {
+            if (elements.length && currentTranslations[key]) {
                 Array.from(elements).forEach(elem => {
                     elem.innerText = currentTranslations[key];
                 });
@@ -114,8 +109,9 @@ function setTranslations (locale, defaultLocale) {
     changeLanguageButton(locale);
 }
 
-window.myChangeLang = function () {
+document.getElementById('changeLangButton').onclick = function (e) {
     // Muating var!
+    e.preventDefault();
     GLOBALSTATE.locale = GLOBALSTATE.locale === 'en' ? 'fr' : 'en';
     saveLocale(GLOBALSTATE.locale);
     console.log(GLOBALSTATE.locale);
@@ -124,5 +120,30 @@ window.myChangeLang = function () {
 
 function init () {
     setTranslations(GLOBALSTATE.locale);
+}
+
+const mailForm = document.getElementById('email-input');
+if(mailForm) {
+    mailForm.onclick = function(e) {
+        e.target.value = '';
+    };
+
+    document.getElementById('submit-mail-button').onclick = function (e) {
+        e.preventDefault();
+        var email = mailForm.value.trim();
+        if (email === 'Laissez votre mail') return;
+        var http = new XMLHttpRequest();
+        var url = "carmen-mail?email=".concat(email);
+        var params = 'email='.concat(email);
+        http.open("POST", url, true);
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.onreadystatechange = function() {
+            if(http.readyState == 4 && http.status == 200) {
+                document.getElementById('submit-mail-button').style.display = 'none';
+                document.getElementById('sent-check').style.display = 'inline-block';
+            }
+        }
+        http.send(params);
+    }
 }
 init();

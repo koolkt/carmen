@@ -26,6 +26,7 @@ body {
 }
 
 .top-header {
+    overflow: hidden;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -46,8 +47,10 @@ body {
 }
 
 .top-menu-logo {
-    height: 100px;
-    width: 150px;
+    position: absolute;
+    height: 150px;
+    width: auto;
+    top: -26px;
 }
 
 .video-bg {

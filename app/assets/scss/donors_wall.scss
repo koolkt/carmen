@@ -1,5 +1,14 @@
 .wall-petal {
-    height:100px;
-    width:100px;
-    background: url(../img/petal1.svg);
+    height:50px;
+    width:auto;
+    background: url(../img/petal1.svg) no-repeat;
+}
+
+input.wall-search {
+  outline: 0;
+  border-width: 0 0 2px 0;
+  border-color: #d5324e;
+}
+input.wall-search:focus {
+    border-color: #ff002c;
 }
