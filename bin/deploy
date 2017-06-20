@@ -1,6 +1,7 @@
 rm -rf dist/
 webpack -p
 cp app/assets/videos/Carmen-t9SBCIh-4As.mp4 dist/
+cp app/assets/videos/maison_gb.png dist/
 git add dist
 git commit -m 'deploy'
 git subtree push --prefix dist origin gh-pages

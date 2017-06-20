@@ -21,6 +21,9 @@ function setImages (images) {
     });
 }
 
+if (document.getElementsByTagName('video').length)
+    document.getElementsByTagName('video')[0].attributes.poster = maisonImage;
+
 setImages({
     mainBgImage,
     jorgeImage,
