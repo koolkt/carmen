@@ -64,24 +64,28 @@ function saveLocale(locale) {
 
 const translations = {
     fr: {
-        campaignMenuLink: 'Campagne de financement',
-        corpDonMenuLink:'Don corporatif',
-        donationWallButton: 'Mur des donateurs',
-        aboutMenuLink: 'À propos',
-        homeLightboxTitle: 'Sauvons la maison de Georges Bizet',
-        homeLightboxP: "Lancement de la campagne de financement participatif pour sauver la maison de Georges Bizet et créer l'espace Carmen. L'espace sera destiné à être intégré au futur pôle culturel, scientifique et touristique de la ville de Bougival: le Centre Européen de Musique (CEM).",
-        sendButton: 'Envoyer',
-        donateButton: 'Faites un don!',
+        tCampaignMenuLink: 'Campagne de financement',
+        tCorpDonMenuLink:'Don corporatif',
+        tDonationWallButton: 'Mur des donateurs',
+        tAboutMenuLink: 'Le projet',
+        tHomeLightboxTitle: 'Sauvons la maison de Georges Bizet',
+        tHomeLightboxP: "Lancement de la campagne de financement participatif pour sauver la maison de Georges Bizet et créer l'espace Carmen. L'espace sera destiné à être intégré au futur pôle culturel, scientifique et touristique de la ville de Bougival: le Centre Européen de Musique (CEM).",
+        tSendButton: 'Envoyer',
+        tDonateButton: 'Faites un don!',
+        tDiscoverProject: 'Découvrir le projet',
+        tHomeTitle: 'Sauvons la maison de Georges Bizet',
     },
     en: {
-        campaignMenuLink: 'Fundraising Campaign',
-        corpDonMenuLink:'Corporate donation',
-        donationWallButton: 'Donors\' wall',
-        aboutMenuLink: 'About',
-        homeLightboxTitle: 'Lets save the House of Georges Bizet',
-        homeLightboxP: "Launching of the crowd funding campaign to save the house of Georges Bizet and create the space Carmen. This space is intended to be integrated into the future cultural, scientific and touristic center of the city of Bougival: the European Center of Music (CEM).",
-        sendButton: 'Submit',
-        donateButton: 'Donate now!',
+        tHomeTitle: 'Lets Save the house of Georges Bizet',
+        tCampaignMenuLink: 'Fundraising Campaign',
+        tCorpDonMenuLink:'Corporate donation',
+        tDonationWallButton: 'Donors\' wall',
+        tAboutMenuLink: 'About',
+        tHomeLightboxTitle: 'Lets save the House of Georges Bizet',
+        tHomeLightboxP: "Launching of the crowd funding campaign to save the house of Georges Bizet and create the space Carmen. This space is intended to be integrated into the future cultural, scientific and touristic center of the city of Bougival: the European Center of Music (CEM).",
+        tSendButton: 'Submit',
+        tDonateButton: 'Donate now!',
+        tDiscoverProject: 'Discover the project',
     }
 };
 
@@ -97,12 +101,11 @@ function setTranslations (locale, defaultLocale) {
     const currentTranslations = translations[locale] || translations[defaultLocale || 'fr'];
     Object.keys(currentTranslations).forEach(
         key => {
-            if (document.getElementById(key)) {
-                if(document.getElementById(key).isArray) {
-                    document.getElementById(key).forEach(elem => elem.innerText = currentTranslations[key]);
-                } else {
-                    document.getElementById(key).innerText = currentTranslations[key];
-                }
+            const elements = document.getElementsByClassName(key)
+            if (elements.length) {
+                Array.from(elements).forEach(elem => {
+                    elem.innerText = currentTranslations[key];
+                });
             }
         }
     );
