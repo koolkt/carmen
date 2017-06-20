@@ -1,6 +1,6 @@
 rm -rf dist/
 webpack -p
-cp app/assets/videos/Carmen-t9SBCIh-4As.mp4 dist/
+cp app/assets/videos/Carmen_video2.mp4 dist/
 cp app/assets/img/maison_gb.png dist/
 git add dist
 git commit -m 'deploy'
