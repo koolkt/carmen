@@ -8,6 +8,7 @@ import placidoImage from './assets/img/placido.jpg';
 import maisonImage from './assets/img/maison_gb.png';
 import villaImage from './assets/img/villa_v.jpg';
 import datchaImage from './assets/img/datcha.jpg';
+import dartLogo from './assets/img/dartagnans_logo.png';
 import { storageAvailable } from './assets/js/functions';
 
 const LOCALSTORAGE_IS_AVIABLE = storageAvailable('localStorage')
@@ -21,9 +22,6 @@ function setImages (images) {
     });
 }
 
-if (document.getElementsByTagName('video').length)
-    document.getElementsByTagName('video')[0].attributes.poster = maisonImage;
-
 setImages({
     mainBgImage,
     jorgeImage,
@@ -35,6 +33,7 @@ setImages({
     'maison-about': maisonImage,
     'villa-about': villaImage,
     'datcha-about': datchaImage,
+    'dartagnans-logo': dartLogo,
 });
 
 function initLocale () {
