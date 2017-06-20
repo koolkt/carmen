@@ -109,15 +109,35 @@ function setTranslations (locale, defaultLocale) {
     changeLanguageButton(locale);
 }
 
-document.getElementById('changeLangButton').onclick = function (e) {
-    // Muating var!
-    e.preventDefault();
-    GLOBALSTATE.locale = GLOBALSTATE.locale === 'en' ? 'fr' : 'en';
-    saveLocale(GLOBALSTATE.locale);
-    console.log(GLOBALSTATE.locale);
-    setTranslations(GLOBALSTATE.locale);
-};
+const volButtonOn = document.getElementById('vol-on');
+const volButtonOff = document.getElementById('vol-off');
 
+if (volButtonOn) {
+    volButtonOn.onclick = function (e) {
+        document.getElementById('bgvid').muted = true;
+        volButtonOn.style.display = 'none';
+        volButtonOff.style.display = 'block';
+    }
+}
+
+if (volButtonOff) {
+    volButtonOff.onclick = function (e) {
+        document.getElementById('bgvid').muted = false;
+        volButtonOff.style.display = 'none';
+        volButtonOn.style.display = 'block';
+    }
+}
+
+if (document.getElementById('changeLangButton')) {
+    document.getElementById('changeLangButton').onclick = function (e) {
+        // Muating var!
+        e.preventDefault();
+        GLOBALSTATE.locale = GLOBALSTATE.locale === 'en' ? 'fr' : 'en';
+        saveLocale(GLOBALSTATE.locale);
+        console.log(GLOBALSTATE.locale);
+        setTranslations(GLOBALSTATE.locale);
+    };
+}
 function init () {
     setTranslations(GLOBALSTATE.locale);
 }
