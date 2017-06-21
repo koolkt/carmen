@@ -3,7 +3,7 @@ import jorgeImage from '../img/jorge.jpg';
 import carmenLogo from '../img/carmen-logo.png';
 import aboutImage from '../img/about_carmen.png';
 import placidoImage from '../img/placido.jpg';
-import maisonImage from '../img/maison_gb.png';
+import maisonImage from '../img/maison_gb.jpg';
 import villaImage from '../img/villa_v.jpg';
 import datchaImage from '../img/datcha.jpg';
 import dartLogo from '../img/dartagnans_logo.png';

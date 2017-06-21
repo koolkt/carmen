@@ -1,4 +1,6 @@
 .section-image-campagne {
+    color: white;
+    margin-top: 100px;
     transform:translateZ(0);
     font-weight: bold;
     padding: 86px;
@@ -28,4 +30,13 @@
 .cometee-member > h4 {
     -webkit-margin-after:0;
     margin-after:0;
+}
+
+.tCampaignGeorgesBizetQuoteName {
+    font-weight: bold;
+    text-align: right;
+}
+
+.tCampaignPlacidoPrecided {
+    font-size: 15px;
 }

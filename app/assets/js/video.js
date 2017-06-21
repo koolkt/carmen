@@ -2,7 +2,12 @@ export default function () {
     const videoElem = document.getElementById('bgvid');
     const volButtonOn = document.getElementById('vol-on');
     const volButtonOff = document.getElementById('vol-off');
+    const videoContainer = document.getElementById('home-video-m-container');
     if(videoElem) {
+        videoElem.addEventListener('play', function() {
+            videoContainer.className += ' fadeOutVideo';
+        }, false);
+        
         if (volButtonOn) {
             volButtonOn.onclick = function (e) {
                 videoElem.muted = true;
