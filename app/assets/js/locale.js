@@ -82,7 +82,7 @@ export const translations = {
         tDonationWallButton: 'Mur des donateurs',
         tAboutMenuLink: 'Le projet',
         tHomeLightboxTitle: 'Sauvons la maison de Georges Bizet',
-        tHomeLightboxP: "Campagne de financement participatif pour sauver la maison de Georges Bizet et créer l'espace Carmen.",
+        tHomeLightboxP: "Campagne de financement participatif pour sauver la maison de Georges Bizet et créer le futur espace Carmen.",
         tSendButton: 'Envoyer',
         tDonateButton: 'Faites un don!',
         tDiscoverProject: 'Découvrir le projet',

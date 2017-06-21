@@ -6,9 +6,9 @@ import initVideoButtons from './assets/js/video';
 import initWall from './assets/js/wall';
 
 function init () {
-    initVideoButtons();
     initTransaltions();
     initImages();
+    initVideoButtons();
     initWall();
 }
 

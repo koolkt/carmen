@@ -7,7 +7,7 @@ import maisonImage from '../img/maison_gb.jpg';
 import villaImage from '../img/villa_v.jpg';
 import datchaImage from '../img/datcha.jpg';
 import dartLogo from '../img/dartagnans_logo.png';
-
+import dartLogoWhite from '../img/dart_white_logo.png';
 
 function setImages (images) {
     Object.keys(images).forEach(id => {
@@ -32,5 +32,6 @@ export default function () {
         'datcha-about': datchaImage,
         'dartagnans-logo': dartLogo,
         'placido-circle2': placidoImage,
+        'dartagnans-logo-white': dartLogoWhite,
     });
 }
