@@ -3,10 +3,6 @@ export default function () {
     const volButtonOn = document.getElementById('vol-on');
     const volButtonOff = document.getElementById('vol-off');
     if(videoElem) {
-        videoElem.addEventListener('loadedmetadata', function() {
-            this.currentTime = 7;
-        }, false);
-        
         if (volButtonOn) {
             volButtonOn.onclick = function (e) {
                 videoElem.muted = true;

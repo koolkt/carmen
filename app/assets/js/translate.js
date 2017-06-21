@@ -39,6 +39,16 @@ function changeLanguageButton(locale) {
     }
 }
 
+function setDonateLinks(locale) {
+    const link = `https://dartagnans.fr/${locale}/projects/carmen-la-maison-de-georges-bizet/campaign`
+    const elements = document.getElementsByClassName("discover-link");
+    if (elements.length) {
+        Array.from(elements).forEach(elem => {
+            elem.href = link;
+        });
+    }
+}
+
 function setTranslations (locale, defaultLocale) {
     const currentTranslations = translations[locale] || translations[defaultLocale || 'fr'];
     Object.keys(currentTranslations).forEach(
@@ -56,6 +66,7 @@ function setTranslations (locale, defaultLocale) {
 
 export default function () {
     setTranslations(GLOBALSTATE.locale);
+    setDonateLinks(GLOBALSTATE.locale);
     if (document.getElementById('changeLangButton')) {
         document.getElementById('changeLangButton').onclick = function (e) {
             // Muating var!
@@ -64,6 +75,7 @@ export default function () {
             saveLocale(GLOBALSTATE.locale);
             console.log(GLOBALSTATE.locale);
             setTranslations(GLOBALSTATE.locale);
+            setDonateLinks(GLOBALSTATE.locale);
         };
     }
 

@@ -20,8 +20,9 @@ var entrypoint = process.env.npm_lifecycle_event === 'dev' ?
 module.exports = {
   entry: ['whatwg-fetch', entrypoint],
   output: {
-    path: __dirname + '/dist',
-    filename: '[name].[chunkhash].js'
+      path: __dirname + '/dist',
+      filename: '[name].[chunkhash].js',
+      publicPath: '/carmen/',
   },
   module: {
       loaders: [

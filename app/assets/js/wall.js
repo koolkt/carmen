@@ -209,7 +209,6 @@ function getPetalNumberFromDonation(donationAmount) {
 }
 
 function getColumns () {
-    console.log([...Array(23).keys()].slice(1));
     return [...Array(23).keys()].slice(1).map( cn => document.getElementById(`cn${cn}`));
 }
 
@@ -230,18 +229,21 @@ function renderDonnors (donors) {
 };
 
 export function fetchDonors () {
-    fetch('carmen-donors')
+    fetch('/carmen-donors')
         .then(function(response) {
             return response.json()
         }).then(function(json) {
-            renderDonnors(JSON.parse(json));
+            renderDonnors(json);
         }).catch(function(ex) {
             console.log('parsing failed', ex)
         })
 }
 
 export default function () {
-    fetchDonors();
+    const wall = document.getElementById('donnors-wall');
+    if (wall) {
+        fetchDonors();
+    }
     /* if(document.getElementsByClassName('wall-petal').length) {
      *     Array.from(document.getElementsByClassName('wall-petal')).forEach(
      *         elem => {

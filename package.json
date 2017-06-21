@@ -9,7 +9,8 @@
     "build": "webpack",
     "production": "webpack -p",
     "deploy": "./bin/deploy",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "dartagnans": "./bin/copy_to_dartagnans"
   },
   "repository": {
     "type": "git",

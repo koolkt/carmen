@@ -1,0 +1,8 @@
+rm -rf dist/
+webpack -p
+cp app/assets/videos/Carmen_video2.mp4 dist/
+cp app/assets/videos/carmen_home.m4v dist/
+cp app/assets/img/maison_gb.png dist/
+rm -rf ../dart-web/public/carmen/*
+cp dist/* ../dart-web/public/carmen/
+cp app/assets/videos/carmen_home.m4v ../dart-web/public/
