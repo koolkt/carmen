@@ -4,10 +4,6 @@ export default function () {
     const volButtonOff = document.getElementById('vol-off');
     const videoContainer = document.getElementById('home-video-m-container');
     if(videoElem) {
-        /* videoElem.addEventListener('play', function() {
-         *     videoContainer.className += ' fadeOutVideo';
-         * }, false);
-         * */
         if (volButtonOn) {
             volButtonOn.onclick = function (e) {
                 videoElem.muted = true;

@@ -9,7 +9,7 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const petals = ['x', petal1, petal2, petal3, petal4, petal5];
+const petals = ['_', petal1, petal2, petal3, petal4, petal5];
 
 const testJson = [
     {
@@ -218,7 +218,7 @@ function renderDonnors (donors) {
     if (wall) {
         const petalElements = donors.map(d => {
             const petal = document.createElement('div');
-            petal.className += 'wall-petal';
+            petal.className += ' wall-petal';
             petal.style.background = `url(${petals[getPetalNumberFromDonation(d.amount)]}) no-repeat`;
             return petal;
         });
