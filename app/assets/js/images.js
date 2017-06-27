@@ -1,6 +1,6 @@
 import mainBgImage from '../img/test.jpg';
 import jorgeImage from '../img/jorge.jpg';
-import carmenLogo from '../img/carmen-logo.png';
+import carmenLogo from '../img/carmen-logo.jpg';
 import aboutImage from '../img/about_carmen.png';
 import placidoImage from '../img/placido.jpg';
 import maisonImage from '../img/maison_gb.jpg';

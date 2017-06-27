@@ -1,11 +1,11 @@
 import { storageAvailable } from './functions';
 import { translations } from './locale';
 
-const LOCALSTORAGE_IS_AVIABLE = storageAvailable('localStorage')
+const LOCALSTORAGE_IS_AVAILABLE = storageAvailable('localStorage')
 
 function initLocale () {
     const defaultLocale = navigator.language.slice(0,2);
-    if (LOCALSTORAGE_IS_AVIABLE) {
+    if (LOCALSTORAGE_IS_AVAILABLE) {
         const locale = localStorage.getItem('locale')
 	if(locale) {
             return locale;
@@ -23,7 +23,7 @@ var GLOBALSTATE = {
 }
 
 function saveLocale(locale) {
-    if (LOCALSTORAGE_IS_AVIABLE) {
+    if (LOCALSTORAGE_IS_AVAILABLE) {
         localStorage.setItem('locale', locale);
     }
     else {
