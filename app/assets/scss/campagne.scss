@@ -1,9 +1,8 @@
 .section-image-campagne {
     color: white;
-    margin-top: 100px;
+    margin-top: 60px;
     transform:translateZ(0);
     font-weight: bold;
-    padding: 86px;
     text-align: center;
     background-color: #2b353b;
     background-image: -webkit-linear-gradient(270deg, rgba(43,53,59,0.7), rgba(43,53,59,0.7)),url('../img/drone.jpg');
@@ -19,11 +18,16 @@
     line-height: 1.7em;
 }
 
-.europa-logo {
-    height: 200px;
-    fill: white;
+.europa-logo-container {
+    display: block;
+    padding: 45px 16px 0;
+    height: 175px;
+    width: 100px;
     background: #e40025;
-    padding: 30px 20px;
+}
+
+.europa-logo {
+    fill: white;
     stroke-opacity: 0;
 }
 
@@ -39,4 +43,23 @@
 
 .tCampaignPlacidoPrecided {
     font-size: 15px;
+}
+
+/* Larger than mobile */
+@media (min-width: 400px) {
+}
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {
+    .section-image-campagne {
+        margin-top: 100px;
+        padding: 86px;
+    }
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {
+}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {
 }

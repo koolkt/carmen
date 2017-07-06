@@ -33,7 +33,7 @@
 .main-lightbox-buttons-container {
     justify-content: space-around;
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     color: white;
 }
 
@@ -76,7 +76,7 @@
     align-items: center;
     height: 100%;
     background: rgba(0, 0, 0, 0.40);
-    margin-top: 100px;
+    margin-top: 60px;
 }
 
 .fadeOutVideo {
@@ -86,4 +86,24 @@
 .home-donate-big-btn {
     width: 300px;
     font-size: .8em;
+}
+
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {
+    .main-bg-video-container {
+        margin-top: 100px;
+    }
+    .main-lightbox-buttons-container {
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 550px) {
+    #vol-off, #vol-on {
+        display: none;
+    }
+    
+    button {
+        width: 100%;
+    }
 }
