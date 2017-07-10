@@ -1,198 +1,38 @@
-import petal1 from '../img/petal1.svg';
-import petal2 from '../img/petal2.svg';
-import petal3 from '../img/petal3.svg';
-import petal4 from '../img/petal4.svg';
-import petal5 from '../img/petal5.svg';
 import 'whatwg-fetch'
+import petals from './petal.js'
+
+function createNodeFromStr(str) {
+    return document.createRange().createContextualFragment(str);
+}
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+}
+
+function log() {
+    console.log(...arguments);
+}
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const petals = ['_', petal1, petal2, petal3, petal4, petal5];
+function range(n) {
+    return [...Array(n).keys()];
+}
 
-const testJson = [
-    {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "5",
-        anonymous: "f"
-    },
-    {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "10000",
-        anonymous: "f"
-    },
-        {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "5",
-        anonymous: "f"
-    },
-    {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "10000",
-        anonymous: "f"
-    },
-        {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "5",
-        anonymous: "f"
-    },
-    {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "10000",
-        anonymous: "f"
-    },
-        {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "5",
-        anonymous: "f"
-    },
-    {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "10000",
-        anonymous: "f"
-    },
-        {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "5",
-        anonymous: "f"
-    },
-    {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "10000",
-        anonymous: "f"
-    },
-        {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "5",
-        anonymous: "f"
-    },
-    {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "10000",
-        anonymous: "f"
-    },
-        {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "5",
-        anonymous: "f"
-    },
-    {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "10000",
-        anonymous: "f"
-    },
-        {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "5",
-        anonymous: "f"
-    },
-    {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "10000",
-        anonymous: "f"
-    },
-        {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "5",
-        anonymous: "f"
-    },
-    {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "10000",
-        anonymous: "f"
-    },
-        {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "5",
-        anonymous: "f"
-    },
-    {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "10000",
-        anonymous: "f"
-    },
-        {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "5",
-        anonymous: "f"
-    },
-    {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "10000",
-        anonymous: "f"
-    },
-        {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "5",
-        anonymous: "f"
-    },
-    {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "10000",
-        anonymous: "f"
-    },
-        {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "5",
-        anonymous: "f"
-    },
-    {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "10000",
-        anonymous: "f"
-    },
-        {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "5",
-        anonymous: "f"
-    },
-    {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "10000",
-        anonymous: "f"
-    },
-        {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "5",
-        anonymous: "f"
-    },
-    {
-        first_name: "Anonyme",
-        last_name: "Ssssssss",
-        amount: "10000",
-        anonymous: "f"
-    },
-];
+const testJson = (amount) => ({
+    first_name: "Anonyme",
+    last_name: "Ssssssss",
+    amount,
+    anonymous: "f"
+});
+
+function generateTestData() {
+    return range(getRandomInt(10,1000)).map(_ => testJson(getRandomInt(10,10000)))
+}
 
 function getPetalNumberFromDonation(donationAmount) {
     if(donationAmount <= 99) {
@@ -209,22 +49,36 @@ function getPetalNumberFromDonation(donationAmount) {
 }
 
 function getColumns () {
-    return [...Array(23).keys()].slice(1).map( cn => document.getElementById(`cn${cn}`));
+    return range(23).slice(1).map( cn => document.getElementById(`cn${cn}`));
+}
+
+function partition(elems, cSize) {
+    return range(Math.ceil(elems.length/cSize)).map(i => elems.slice(cSize*i, (cSize*i) + cSize));
 }
 
 function renderDonnors (donors) {
     const columns = getColumns();
     const wall = document.getElementById('donnors-wall');
     if (wall) {
+        const isBig = {};
         const petalElements = donors.map(d => {
-            const petal = document.createElement('div');
-            petal.className += ' wall-petal';
-            petal.style.background = `url(${petals[getPetalNumberFromDonation(d.amount)]}) no-repeat`;
+            const petal = createNodeFromStr(petals[getPetalNumberFromDonation(d.amount)]).firstElementChild;
+            petal.id = getRandomInt(1, 100000);
+            petal.addEventListener('click', (e) => {
+                console.log(e.srcElement.nodeName)
+                const elem = e.srcElement.nodeName === 'path' ? e.srcElement.parentElement : e.srcElement;
+                if(isBig[elem.id]) {
+                    elem.style.transform =  'scale(1)';
+                    isBig[elem.id] = false;
+                } else {
+                    elem.style.transform =  'scale(7)';
+                    isBig[elem.id] = true;
+                }
+            }, false)
             return petal;
         });
-        petalElements.forEach((elem, i) => {
-            columns[(i % 22)].appendChild(elem);
-        });
+        window.pppetal = petalElements;
+        petalElements.forEach((elem, i) => columns[0].appendChild(elem));
     }
 };
 
@@ -235,14 +89,15 @@ export function fetchDonors () {
         }).then(function(json) {
             renderDonnors(json);
         }).catch(function(ex) {
-            console.log('parsing failed', ex)
+            log('parsing failed', ex)
         })
 }
 
 export default function () {
     const wall = document.getElementById('donnors-wall');
     if (wall) {
-        fetchDonors();
+        renderDonnors(generateTestData());
+        /* fetchDonors();*/
     }
     /* if(document.getElementsByClassName('wall-petal').length) {
      *     Array.from(document.getElementsByClassName('wall-petal')).forEach(
