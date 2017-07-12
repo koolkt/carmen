@@ -1,5 +1,6 @@
 import 'whatwg-fetch'
 import petals from './petal.js'
+import Fuse from 'fuse.js';
 
 function createNodeFromStr(str) {
     return document.createRange().createContextualFragment(str);
@@ -15,18 +16,13 @@ function log() {
     console.log(...arguments);
 }
 
-/* function getRandomInt(min, max) {
- *     return Math.floor(Math.random() * (max - min + 1)) + min;
- * }
- * */
-
 function range(n) {
     return [...Array(n).keys()];
 }
 
 const testJson = (amount) => ({
-    first_name: "Georges",
-    last_name: "Ssssssss",
+    first_name: "Dominique",
+    last_name: "Daveau",
     amount,
     anonymous: "f",
     country: 'FR',
@@ -69,7 +65,7 @@ function createText(x, y, fontSize, petalText) {
     return newText;
 }
 
-function renderDonnors (donors) {
+function createPetals (donors) {
     const columns = getColumns();
     const wall = document.getElementById('donnors-wall');
     if (wall) {
@@ -79,18 +75,23 @@ function renderDonnors (donors) {
             petal.id = `${getRandomInt(1, 1000)}-${getRandomInt(1000, 100000)}`;
             petal.style.zIndex = 1;
             petal.addEventListener('click', (e) => {
-                console.log(e.srcElement.nodeName)
                 const elem = e.srcElement.nodeName === 'path' || e.srcElement.nodeName === 'text' ? e.srcElement.parentElement : e.srcElement;
                 if(isBig[elem.id]) {
                     elem.style.transform = 'scale(1)';
                     elem.style.zIndex = 1;
                     isBig[elem.id] = false;
                 } else {
-                    const nameString = `${d.first_name} ${d.last_name}`;
-                    const donnorName = createText(32, 43, 6, d.anonymous  === 't' ? 'Anonymous' : nameString);
-                    const amount = createText(48, 60, 6, `€ ${d.amount}`);
+                    if (d.anonymous  === 'f') {
+                        const firstName = createText(40, 38, 6, d.first_name);
+                        const lastName = createText(d.last_name.length >= 13 ? 35 : 40, 50, 6, d.last_name);
+                        elem.appendChild(firstName);
+                        elem.appendChild(lastName);
+                    } else {
+                        const firstName = createText(40, 43, 6, 'Anonymous');
+                        elem.appendChild(firstName);
+                    }
+                    const amount = createText(48, 65, 6, `€ ${d.amount}`);
                     const country = createText(54, 85, 6, d.country);
-                    elem.appendChild(donnorName);
                     elem.appendChild(amount);
                     elem.appendChild(country);
                     elem.style.transform =  'scale(7)';
@@ -100,34 +101,49 @@ function renderDonnors (donors) {
             }, false)
             return petal;
         });
-        window.pppetal = petalElements;
-        petalElements.forEach((elem, i) => columns[0].appendChild(elem));
+        return petalElements;
     }
 };
 
-export function fetchDonors () {
-    fetch('/carmen-donors')
-        .then(function(response) {
-            return response.json()
-        }).then(function(json) {
-            renderDonnors(json);
-        }).catch(function(ex) {
-            log('parsing failed', ex)
-        })
+function renderDonnors(donorPetals) {
+    const elem = document.getElementById('cn1');
+    donorPetals.forEach((petal, i) => elem.appendChild(petal));
 }
 
-export default function () {
+export default async function () {
     const wall = document.getElementById('donnors-wall');
+    const wallInner = document.getElementById('cn1');
     if (wall) {
-        renderDonnors(generateTestData());
-        /* fetchDonors();*/
+        const res = await fetch('/carmen-donors');
+        const donorslist = await res.json();
+        const allPetalElements = createPetals(donorslist);
+        const options = {
+            shouldSort: true,
+            threshold: 0.3,
+            location: 0,
+            distance: 100,
+            maxPatternLength: 32,
+            minMatchCharLength: 1,
+            keys: [
+                'first_name',
+                'last_name',
+                'country',
+            ]
+        };
+        var fuse = new Fuse(donorslist, options); // "list" is the item array
+        const searchBox = document.getElementById('donors-search');
+        searchBox.addEventListener('keyup', (e) => {
+            const searchQuery = searchBox.value;
+            if (!searchQuery.length) {
+                wallInner.innerHTML = '';
+                renderDonnors(allPetalElements);
+            } else {
+                const result = fuse.search(searchQuery);
+                const respetals = createPetals(result)
+                wallInner.innerHTML = '';
+                renderDonnors(respetals);
+            }
+    });
+        renderDonnors(allPetalElements);
     }
-    /* if(document.getElementsByClassName('wall-petal').length) {
-     *     Array.from(document.getElementsByClassName('wall-petal')).forEach(
-     *         elem => {
-     *             elem.style.background = `url(${petals[getRandomInt(1,5)]}) no-repeat`;
-     *         }
-     *     );
-     * }*/
-
 }
