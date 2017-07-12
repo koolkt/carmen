@@ -4,13 +4,13 @@ import { translations } from './locale';
 const LOCALSTORAGE_IS_AVAILABLE = storageAvailable('localStorage')
 
 function initLocale () {
-    const defaultLocale = navigator.language.slice(0,2);
+    const defaultLocale = navigator && navigator.language && navigator.language.slice(0,2);
     if (LOCALSTORAGE_IS_AVAILABLE) {
         const locale = localStorage.getItem('locale')
 	if(locale) {
-            return locale;
+            return locale === 'en' || locale === 'fr' ? locale : 'en';
         } else {
-            return defaultLocale;
+            return defaultLocale === 'en' || defaultLocale === 'fr' ? defaultLocale : 'en';
         }
     }
     else {
