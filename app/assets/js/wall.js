@@ -2,18 +2,10 @@ import 'whatwg-fetch'
 import petals from './petal.js'
 import Fuse from 'fuse.js';
 
-function createNodeFromStr(str) {
-    return document.createRange().createContextualFragment(str);
-}
-
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
-}
-
-function log() {
-    console.log(...arguments);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function range(n) {
@@ -46,10 +38,6 @@ function getPetalNumberFromDonation(donationAmount) {
     }
 }
 
-function getColumns () {
-    return range(23).slice(1).map( cn => document.getElementById(`cn${cn}`));
-}
-
 function partition(elems, cSize) {
     return range(Math.ceil(elems.length/cSize)).map(i => elems.slice(cSize*i, (cSize*i) + cSize));
 }
@@ -65,44 +53,65 @@ function createText(x, y, fontSize, petalText) {
     return newText;
 }
 
+const ANONYMOUS_TEXT_NODE = createText(40, 43, 6, 'Anonymous');
+
+function addTextToPetal(petalNode, donor) {
+    const isAnonymous = donor.anonymous === 't';
+    const firstNameNode = isAnonymous ? ANONYMOUS_TEXT_NODE : createText(40, 38, 6, donor.first_name);
+    if (!isAnonymous) {
+        const lastNameNode = createText(donor.last_name.length >= 13 ? 35 : 40, 50, 6, donor.last_name);
+        petalNode.appendChild(lastNameNode);
+    }
+    const amountNode = createText(48, 65, 6, `€ ${donor.amount}`);
+    const countryNode = createText(54, 85, 6, donor.country);
+    petalNode.appendChild(firstNameNode);
+    petalNode.appendChild(amountNode);
+    petalNode.appendChild(countryNode);
+}
+
+function getPetalNodeFromEvent(e) {
+    return e.srcElement.nodeName === 'path' || e.srcElement.nodeName === 'text' ? e.srcElement.parentElement : e.srcElement;
+}
+
+function animatePetal(petalNode, isBig, donorInfo) {
+    if(isBig[petalNode.id]) {
+        petalNode.style.transform = 'scale(1)';
+        petalNode.style.zIndex = 1;
+        isBig[petalNode.id] = false;
+    } else {
+        addTextToPetal(petalNode, donorInfo);
+        petalNode.style.transform =  'scale(7)';
+        petalNode.style.zIndex = 1000;
+        isBig[petalNode.id] = true;
+    }
+}
+
+function createNodeFromStr(str) {
+    return document.createRange().createContextualFragment(str);
+}
+
+function createPetalNode(amount) {
+    const petal = createNodeFromStr(petals[getPetalNumberFromDonation(amount)]).firstElementChild;
+    petal.id = `${getRandomInt(1, 1000)}-${getRandomInt(1000, 100000)}`;
+    petal.style.zIndex = 1;
+    return petal;
+}
+
 function createPetals (donors) {
-    const columns = getColumns();
     const wall = document.getElementById('donnors-wall');
-    if (wall) {
+    if (wall && donors.length) {
         const isBig = {};
         const petalElements = donors.map(d => {
-            const petal = createNodeFromStr(petals[getPetalNumberFromDonation(d.amount)]).firstElementChild;
-            petal.id = `${getRandomInt(1, 1000)}-${getRandomInt(1000, 100000)}`;
-            petal.style.zIndex = 1;
+            const petal = createPetalNode(d.amount);
             petal.addEventListener('click', (e) => {
-                const elem = e.srcElement.nodeName === 'path' || e.srcElement.nodeName === 'text' ? e.srcElement.parentElement : e.srcElement;
-                if(isBig[elem.id]) {
-                    elem.style.transform = 'scale(1)';
-                    elem.style.zIndex = 1;
-                    isBig[elem.id] = false;
-                } else {
-                    if (d.anonymous  === 'f') {
-                        const firstName = createText(40, 38, 6, d.first_name);
-                        const lastName = createText(d.last_name.length >= 13 ? 35 : 40, 50, 6, d.last_name);
-                        elem.appendChild(firstName);
-                        elem.appendChild(lastName);
-                    } else {
-                        const firstName = createText(40, 43, 6, 'Anonymous');
-                        elem.appendChild(firstName);
-                    }
-                    const amount = createText(48, 65, 6, `€ ${d.amount}`);
-                    const country = createText(54, 85, 6, d.country);
-                    elem.appendChild(amount);
-                    elem.appendChild(country);
-                    elem.style.transform =  'scale(7)';
-                    elem.style.zIndex = 1000;
-                    isBig[elem.id] = true;
-                }
+                const petalNode = getPetalNodeFromEvent(e)
+                animatePetal(petalNode, isBig, d);
             }, false)
             return petal;
         });
         return petalElements;
     }
+    return [];
 };
 
 function renderDonnors(donorPetals) {
@@ -110,40 +119,44 @@ function renderDonnors(donorPetals) {
     donorPetals.forEach((petal, i) => elem.appendChild(petal));
 }
 
+function setUpSearchBox(donorList, allPetalElements) {
+    const wallInner = document.getElementById('cn1');
+    const options = {
+        shouldSort: true,
+        threshold: 0.3,
+        location: 0,
+        distance: 100,
+        maxPatternLength: 32,
+        minMatchCharLength: 1,
+        keys: [
+            'first_name',
+            'last_name',
+            'country',
+        ]
+    };
+    var fuse = new Fuse(donorList, options);
+    const searchBox = document.getElementById('donors-search');
+    searchBox.addEventListener('keyup', (e) => {
+        const searchQuery = searchBox.value;
+        if (!searchQuery.length) {
+            wallInner.innerHTML = '';
+            renderDonnors(allPetalElements);
+        } else {
+            const result = fuse.search(searchQuery);
+            const resPetals = createPetals(result)
+            wallInner.innerHTML = '';
+            renderDonnors(resPetals);
+        }
+    });
+}
+
 export default async function () {
     const wall = document.getElementById('donnors-wall');
-    const wallInner = document.getElementById('cn1');
     if (wall) {
         const res = await fetch('/carmen-donors');
-        const donorslist = await res.json();
-        const allPetalElements = createPetals(donorslist);
-        const options = {
-            shouldSort: true,
-            threshold: 0.3,
-            location: 0,
-            distance: 100,
-            maxPatternLength: 32,
-            minMatchCharLength: 1,
-            keys: [
-                'first_name',
-                'last_name',
-                'country',
-            ]
-        };
-        var fuse = new Fuse(donorslist, options); // "list" is the item array
-        const searchBox = document.getElementById('donors-search');
-        searchBox.addEventListener('keyup', (e) => {
-            const searchQuery = searchBox.value;
-            if (!searchQuery.length) {
-                wallInner.innerHTML = '';
-                renderDonnors(allPetalElements);
-            } else {
-                const result = fuse.search(searchQuery);
-                const respetals = createPetals(result)
-                wallInner.innerHTML = '';
-                renderDonnors(respetals);
-            }
-    });
+        const donorList = await res.json();
+        const allPetalElements = createPetals(donorList);
+        setUpSearchBox(donorList, allPetalElements);
         renderDonnors(allPetalElements);
     }
 }
