@@ -95,11 +95,12 @@ html {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Passion One', cursive;
+    font-family: $font-stack;
+    font-weight: bold;
 }
 
 body, input, textarea, select {
-    font-family: 'Open Sans', Helvetica, Arial, Lucida, sans-serif;
+    font-family: $font-stack;
 }
 
 section {
@@ -149,7 +150,7 @@ p {
     }
 
     .top-header {
-        min-height: 100px;
+        min-height: 130px;
     }
     .first-section {
         margin-top: 100px;
@@ -167,7 +168,7 @@ p {
         position: absolute;
         height: 150px;
         width: auto;
-        top: -26px;
+        top: -11px;
         left: 5%;
     }
 }

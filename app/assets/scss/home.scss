@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Bevan');
 .main-lightbox-video { 
     position: fixed;
-    top: 56%;
+    top: 63%;
     left: 50%;
     min-width: 100%;
     min-height: 100%;
@@ -19,7 +19,7 @@
 }
 
 .main-lightbox-title {
-    font-family: 'Bevan', sans-serif;
+    font-family: 'Open Sans', Helvetica, Arial, Lucida, sans-serif;
     text-align: center;
     color: white;
     letter-spacing: 1px;
@@ -91,7 +91,7 @@
 /* Larger than phablet (also point when grid becomes active) */
 @media (min-width: 550px) {
     .main-bg-video-container {
-        margin-top: 100px;
+        margin-top: 130px;
     }
     .main-lightbox-buttons-container {
         margin-bottom: 50px;
