@@ -22,7 +22,6 @@ export default function () {
         mainBgImage,
         jorgeImage,
         'dart-campaign-img': mainBgImage,
-        'header-logo': carmenLogo,
         'about-top-image': aboutImage,
         'campaigne-top-text': jorgeImage,
         'placido-circle': placidoImage,

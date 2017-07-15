@@ -70,7 +70,7 @@ function addTextToPetal(petalNode, donor) {
 }
 
 function getPetalNodeFromEvent(e) {
-    return e.srcElement.nodeName === 'path' || e.srcElement.nodeName === 'text' ? e.srcElement.parentElement : e.srcElement;
+    return e.target.nodeName === 'path' || e.target.nodeName === 'text' ? e.target.parentElement : e.target;
 }
 
 function animatePetal(petalNode, isBig, donorInfo) {

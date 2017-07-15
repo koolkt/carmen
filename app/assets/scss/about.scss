@@ -14,3 +14,10 @@
     background-size: auto, cover;
     background-attachment: scroll, fixed;
 }
+
+@media (min-width: 550px) {
+    .about-paragraph {
+        column-count: 2;
+        column-gap: 40px;
+    }
+}
