@@ -1,6 +1,6 @@
 export const campaignFr = {
     tCampaigneCarmenQuote: "J’ai trouvé à Bougival un petit coin très tranquille au bord de l’eau. J’y vais terminer Carmen.",
-    tCampaignTitle: "Campagne placée sous le haut Patronage d'EUROPA NOSTRA - La voie du patrimoine culturel en Europe présidée par Plácido Domingo",
+    tCampaignTitle: "Campagne placée sous le haut Patronage d'EUROPA NOSTRA - La voix du patrimoine culturel en Europe présidée par Plácido Domingo",
     tCampaignEuropaNostraDesc: "Fédération européenne du patrimoine culturel, Europa Nostra, est un mouvement citoyen créé pour sauvegarder le patrimoine culturel et naturel européen. Il réunit plus de 450 associations et collabore régulièrement avec les organisations internationales, en particulier l’Union européenne, le Conseil de l’Europe et l’UNESCO qui l’a reconnu comme ONG partenaire avec rôle consultatif.",
     tCampaignPlacidoPrecided: 'Présidée par Plácido Domingo',
     tCampaignGeorgeTitle: 'Une campagne de financement participatif de 3 millions d’euros pour sauver la maison de Georges Bizet et créer l’Espace Carmen',
