@@ -12,20 +12,23 @@
                 </svg>
     <div class="container main-lightbox-container" style="position: static;">
         <h1 class="tHomeTitle main-lightbox-title">Sauvons la maison de Georges Bizet</h1>
-        <p class="tHomeLightboxP row main-lightbox-p">Campagne de financement participatif pour sauver la maison de Georges Bizet et créer le futur espace Carmen.</p>
-        <div class=" row main-lightbox-buttons-container">
-             <a target="_blank" href="https://www.youtube.com/embed/IX64MBsc5s8">
-                <button class="tWatchVideoButton">
-                    Regarder la vidéo
-                </button>
-            </a>
+        <p class="tHomeLightboxP row main-lightbox-p">
+            Campagne de financement participatif pour sauver la maison de Georges Bizet et créer le futur espace Carmen.
+        </p>
+        <div id="videoPopup" style="position: absolute;top: 132px;left: 0;right: 0;bottom: 0;display:none;z-index: 1000;">
+            <iframe style="height:100%; width: 100%;" src="https://www.youtube.com/embed/IX64MBsc5s8" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="row main-lightbox-buttons-container">
+            <button class="tWatchVideoButton" onclick="document.getElementById('videoPopup').style.display = 'inline'">
+                Regarder la vidéo
+            </button>
             <a href="https://dartagnans.fr/carmen/campaigne.html">
                 <button class="tDiscoverProject">
                     Découvrir le projet
                 </button>
             </a>
         </div>
-        <div style="display: flex; justify-content: center; align-items: center;"> 
+        <div style="display: flex; justify-content: center; align-items: center;">
             <a class="discover-link" href="https://dartagnans.fr/fr/projects/carmen-la-maison-de-georges-bizet/campaign">
                 <button class="tDonateButton home-donate-big-btn">
                     Faites un don
