@@ -37,7 +37,7 @@ module.exports = {
           {
               test: /\.scss$/,
               include: __dirname + '/app',
-              loader: ExtractTextPlugin.extract('css!sass')
+              loader: ExtractTextPlugin.extract('css-loader!sass-loader')
           },
           {
               test: /.png|gif|jpg$/,
