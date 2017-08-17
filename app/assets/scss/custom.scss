@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Passion+One');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 $font-stack: 'Open Sans', Helvetica, Arial, Lucida, sans-serif;
+$top-header-height: 100px;
 
 $primary-color: #333;
 
@@ -115,10 +116,6 @@ section {
     font-weight: bold;
 }
 
-html, body {
-    height: 100%;
-}
-
 .page-rectangular-header {
     text-align: center;
     background: gainsboro;
@@ -150,7 +147,7 @@ p {
     }
 
     .top-header {
-        min-height: 130px;
+        min-height: $top-header-height;
     }
     .first-section {
         margin-top: 100px;
@@ -166,9 +163,9 @@ p {
     }
     .top-menu-logo {
         position: absolute;
-        height: 150px;
+        height: 100px;
         width: auto;
-        top: -11px;
+        top: 10px;
         left: 5%;
     }
 }

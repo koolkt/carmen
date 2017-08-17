@@ -13,6 +13,8 @@
     background-position: 0px 0px, 0px -10%;
     background-size: auto, cover;
     background-attachment: scroll, fixed;
+    color: white;
+    margin-top: $top-header-height;
 }
 
 @media (min-width: 550px) {

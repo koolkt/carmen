@@ -91,7 +91,7 @@
 /* Larger than phablet (also point when grid becomes active) */
 @media (min-width: 550px) {
     .main-bg-video-container {
-        margin-top: 130px;
+        margin-top: $top-header-height;
     }
     .main-lightbox-buttons-container {
         margin-bottom: 50px;
