@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Passion+One');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 $font-stack: 'Open Sans', Helvetica, Arial, Lucida, sans-serif;
-$top-header-height: 100px;
+$top-header-height: 90px;
 
 $primary-color: #333;
 
@@ -147,7 +147,7 @@ p {
     }
 
     .top-header {
-        min-height: $top-header-height;
+        max-height: $top-header-height;
     }
     .first-section {
         margin-top: 100px;

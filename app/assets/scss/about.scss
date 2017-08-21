@@ -5,11 +5,11 @@
 
 .section-image-about {
     transform:translateZ(0);
-    padding: 100px;
+    padding: 60px;
     text-align: center;
     background-color: #2b353b;
-    background-image: -webkit-linear-gradient(270deg, rgba(43,53,59,0.7), rgba(43,53,59,0.7)),url('../img/about_carmen.png');
-    background-image: linear-gradient(180deg, rgba(43,53,59,0.7), rgba(43,53,59,0.7)),url('../img/about_carmen.png');
+    background-image: -webkit-linear-gradient(270deg, rgba(43,53,59,0.7), rgba(43,53,59,0.7)),url('../img/drone.jpg');
+    background-image: linear-gradient(180deg, rgba(43,53,59,0.7), rgba(43,53,59,0.7)),url('../img/drone.jpg');
     background-position: 0px 0px, 0px -10%;
     background-size: auto, cover;
     background-attachment: scroll, fixed;
