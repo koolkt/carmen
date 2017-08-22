@@ -10,7 +10,7 @@ function generatePage (pageName) {
     });
 }
 
-var pages = ['corporate-donation', 'donation', 'campaigne', 'home', 'about', 'donors-wall'].map(generatePage);
+var pages = ['donation', 'campaigne', 'home', 'about', 'donors-wall', 'project', 'comite'].map(generatePage);
 var ExtractTextPluginConfig = new ExtractTextPlugin('style.[contenthash].css');
 
 var entrypoint = process.env.npm_lifecycle_event === 'dev' ?

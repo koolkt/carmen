@@ -15,12 +15,14 @@ function doInLocation(locationToFunction) {
 }
 
 function init () {
-    const logUri = (testUri) => (uri) => console.log(`Inside ${testUri}: ${uri}`)
-    const setMenuColor = (menuId) => _ => (document.getElementById(menuId) || {style: {color: ''}}).style.color = '#8f1a24'
+    const logUri = (testUri) => (uri) => console.log(`Inside ${testUri}: ${uri}`);
+    const setMenuColor = (menuId) => _ => (document.getElementById(menuId) || {style: {color: ''}}).style.color = '#8f1a24';
     const locationToFunction = {
-        'about': setMenuColor('lamaisonMenu'),
+        about: setMenuColor('lamaisonMenu'),
         'donors-wall': setMenuColor('donorsWallMenu'),
-        'campaigne': setMenuColor('campaigneMenu'),
+        campaigne: setMenuColor('campaigneMenu'),
+        project: setMenuColor('leprojetMenu'),
+        comite: setMenuColor('comiteMenu'),
         '/': logUri('home'),
     };
     doInLocation(locationToFunction);
