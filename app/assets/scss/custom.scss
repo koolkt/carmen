@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Passion+One');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 $font-stack: 'Open Sans', Helvetica, Arial, Lucida, sans-serif;
-$top-header-height: 90px;
+$top-header-height: 100px;
 
 $primary-color: #333;
 
@@ -47,6 +47,8 @@ body {
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
     position: fixed;
+    display: flex;
+    flex-direction: column;
     z-index: 1000;
 }
 
@@ -184,3 +186,51 @@ p {
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
 
+
+// New header classes
+
+.header-menu-container {
+    flex:1;
+    display: flex;
+    justify-content: center;
+    height: 75%;
+    width:100%;
+}
+
+.header-menu-redline-container {
+    height:25%;
+    background: #8f1a24;
+    width:100%;
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.header-menu-redline-support {
+    display:flex;
+    background: white;
+    width: 150px;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-menu-redline-support-link, .header-menu-redline-support-link:hover {
+    color: #8f1a24;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.header-menu-redline-icons {
+    display:flex;
+    background: white;
+    width: 150px;
+    height: 30px;
+    margin-right: 100px;
+}
+
+.header-menu-redline-icon {
+    margin: 1px 10px;
+}

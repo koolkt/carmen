@@ -7,6 +7,7 @@ import maisonImage from '../img/maison_gb.jpg';
 import villaImage from '../img/villa_v.jpg';
 import datchaImage from '../img/datcha.jpg';
 import dartLogo from '../img/dartagnans_logo.png';
+import jorgeImageCircle from '../img/jorge_chamine_circle.jpg';
 
 function setImages (images) {
     Object.keys(images).forEach(id => {
@@ -25,6 +26,7 @@ export default function () {
         'about-top-image': aboutImage,
         'campaigne-top-text': jorgeImage,
         'placido-circle': placidoImage,
+        'jorge-circle': jorgeImageCircle,
         'maison-about': maisonImage,
         'villa-about': villaImage,
         'datcha-about': datchaImage,
