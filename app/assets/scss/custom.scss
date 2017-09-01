@@ -30,8 +30,8 @@ body {
 }
 
 .top-header {
+    display: none;
     overflow: hidden;
-    display: flex;
     justify-content: space-around;
     align-items: center;
     line-height: 23px;
@@ -47,7 +47,6 @@ body {
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
     position: fixed;
-    display: flex;
     flex-direction: column;
     z-index: 1000;
 }
@@ -150,6 +149,7 @@ p {
 
     .top-header {
         max-height: $top-header-height;
+        display: flex;
     }
     .first-section {
         margin-top: 100px;
@@ -188,6 +188,10 @@ p {
 
 
 // New header classes
+
+header {
+    display: none;
+}
 
 .header-menu-container {
     flex:1;

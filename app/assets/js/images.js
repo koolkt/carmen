@@ -32,5 +32,6 @@ export default function () {
         'datcha-about': datchaImage,
         'dartagnans-logo': dartLogo,
         'placido-circle2': placidoImage,
+        'dartagnans-logo-footer': dartLogo,
     });
 }

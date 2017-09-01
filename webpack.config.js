@@ -5,12 +5,26 @@ var path = require("path");
 function generatePage (pageName) {
     return new HtmlWebpackPlugin({
         template: __dirname + `/app/templates/${pageName.replace('-', '_')}_index.hbs`,
-        filename: `${pageName === 'home' ? 'index' : pageName}.html`,
+        filename: `${pageName}.html`,
         inject: 'body'
     });
 }
 
-var pages = ['donation', 'campaigne', 'home', 'about', 'donors-wall', 'project', 'comite', 'home_info'].map(generatePage);
+var pages = [
+    'donation',
+    'campaigne',
+    'home',
+    'about',
+    'donors-wall',
+    'project',
+    'comite',
+    'home_info',
+    'support',
+    'more_maison',
+    'frenes',
+    'architectural_project',
+].map(generatePage);
+
 var ExtractTextPluginConfig = new ExtractTextPlugin('style.[contenthash].css');
 
 var entrypoint = process.env.npm_lifecycle_event === 'dev' ?

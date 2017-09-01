@@ -79,6 +79,26 @@
     font-size: .8em;
 }
 
+.home-first-section {
+    display: flex;
+    margin: 0 30px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.home-first-section-text {
+    // width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.home-first-section-button {
+    // width: 50%;
+    background: white;
+    color: black;
+    border: black 1px solid;
+}
+
 /* Larger than phablet (also point when grid becomes active) */
 @media (min-width: 550px) {
     .main-bg-video-container {
@@ -86,6 +106,13 @@
     }
     .main-lightbox-buttons-container {
         margin-bottom: 50px;
+    }
+    .home-first-section-text {
+        width: 45%;
+    }
+
+    .home-first-section-button {
+        width: 50%;
     }
 }
 
@@ -96,5 +123,9 @@
     
     button {
         width: 100%;
+    }
+
+    #home-video-m-container {
+        display: none;
     }
 }

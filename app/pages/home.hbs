@@ -9,15 +9,15 @@
                     <path id="path2" d="M 55.082,20.537 C 58.777,25.523 60.966,31.694 60.966,38.377 C 60.966,44.998 58.815,51.115 55.178,56.076" style="fill:none;stroke-width:5;stroke-linecap:round"/>
                     <path id="path1" d="M 61.71,62.611 C 66.977,55.945 70.128,47.531 70.128,38.378 C 70.128,29.161 66.936,20.696 61.609,14.01" style="fill:none;stroke-width:5;stroke-linecap:round"/>
                 </g>
-                </svg>
+    </svg>
+    <div id="videoPopup" style="position: absolute;top: 100px;left: 0;right: 0;bottom: 0;display:none;z-index: 1;height:100%;">
+        <iframe style="height:100%; width: 100%;" src="https://www.youtube.com/embed/IX64MBsc5s8" frameborder="0" allowfullscreen></iframe>
+    </div>
     <div class="container main-lightbox-container">
         <h2 class="main-lightbox-title">Sauvons la maison de Georges Bizet pour créer le futur Centre Européen de Musique</h2>
         <p style="text-align: center;" class="row main-lightbox-p">
             <h4 style="color: white;text-align: center;">Campagne internationale de financement participatif</h4>
         </p>
-        <div id="videoPopup" style="position: absolute;top: 132px;left: 0;right: 0;bottom: 0;display:none;z-index: 1000;">
-            <iframe style="height:100%; width: 100%;" src="https://www.youtube.com/embed/IX64MBsc5s8" frameborder="0" allowfullscreen></iframe>
-        </div>
         <div class="row main-lightbox-buttons-container">
             <button class="tWatchVideoButton" onclick="document.getElementById('videoPopup').style.display = 'inline'">
                 Regarder la vidéo
@@ -35,8 +35,8 @@
                 </button>
             </a>
         </div>
-        <div style="display: flex; justify-content: center; align-items: center;    position: absolute;left: 0;right: 0;bottom: 1%;"> 
-            <a href="https://dartagnans.fr/"><img alt="" src="dart_white_logo.png" height=36 /></a>
+        <div style="display: flex; justify-content: center; align-items: center;    position: absolute;left: 0;right: 0;bottom: -60px;"> 
+            <a href="https://dartagnans.fr/"><img alt="" src="https://dartagnans.fr/dart_white_logo.png" height=36 /></a>
         </div>
     </div>
     <video
@@ -50,25 +50,25 @@
     </video>
 </div>
 <section>
-    <div style="display: flex; margin: 0 30px; justify-content: space-between;">
-        <div style="width: 45%;display: flex;flex-direction: column;justify-content: space-between;">
+    <div class="home-first-section">
+        <div class="home-first-section-text" style="">
             <h4>QU'EST CE QUE LE CENTRE EUROPÉEN DE MUSIQUE ?</h4>
             <p style="text-align: justify;">
                 Le Centre Européen de Musique est un projet
-                culturel ambitieux et pluridiciplinaire conçu par Jorge
+                culturel ambitieux et pluridisciplinaire conçu par Jorge
                 Chaminé. Lieu vivant, moderne, tourné vers l'avenir
                 et porteur des valeurs humanistes emblématiques de la culture européenne.
             </p>
              <p style="text-align: justify;">
-                 Menacé depuis de nombreuses années, la maison de
-                 Georges Bizet est aujourd'hui au coeur d'un projet
-                 culturel ambitieux et pluridisciplinaire conçu par Jorge
-                 Chaminé : le Centre Européen de Musique (CEM) de Bougival.
+                 Menacée depuis de nombreuses années, la maison de
+                 Georges Bizet est aujourd'hui au coeur du projet du Centre Européen de Musique (CEM).
             </p>
-            
-            <button style="width: 50%; background: white; color: black; border: black 1px solid;">
-                <a style="color: inherit;" href="home_info.html#homeInfoMusic">En savoir plus</a>
-            </button>
+
+            <a style="color: inherit;" href="project.html">
+                <button class="home-first-section-button">
+                    En savoir plus
+                </button>
+            </a>
         </div>
         <div style="display: flex;flex-wrap: wrap; width: 50%;align-content: start;margin-top:50px;">
             <a style="padding:30px; background: #8f1a24;display:flex;align-items: center;justify-content: center;width:47%; height: 120px; margin:5px;" href="home_info.html">
@@ -110,9 +110,12 @@
     <div class="container">
         <div style="display: flex; align-items: center; justify-content: space-between;">
             <div style="display: flex;flex-direction: column; justify-content: space-between; width: 230px; background-color: white; padding: 15px; height: 400px;">
-                <h4 style="margin-bottom: 0; flex: 0 80px;">Musique</h4>
+                <div style="display: flex; flex: 0 80px;justify-content:space-around;padding: 10px;">
+                    <img style="" alt="" height=30 src="https://dartagnans.fr/musical-note.svg"/>
+                    <h4 style="margin-bottom: 0;">Musique</h4>
+                </div>
                 <p style="flex: 1;">
-                    La musique est au coeur du projet du CEM et symbolisée par notre première grande action jj:
+                    La musique est au coeur du projet du CEM et symbolisée par notre première grande action :
                     sauver et restaurer la maison de Georges Bizet, génial créateur de l'opéra Carmen. 
                 </p>
                 <a style="display: flex;justify-content:center;" href="home_info.html">
@@ -122,9 +125,12 @@
                 </a>
             </div>
             <div style="display: flex;flex-direction: column; justify-content: space-between; width: 230px; background-color: white; padding: 15px; height: 400px;">
-                <h4 style="margin-bottom: 0; flex: 0 80px;">Enseignement & pédagogie</h4>
+                <div style="display: flex; flex: 0 80px;justify-content:space-around;padding: 2px;">
+                    <img style="margin-right:20px;" alt="" height=35 src="https://dartagnans.fr/graduate-cap.svg"/>
+                    <h4 style="margin-bottom: 0;">Enseignement & pédagogie</h4>
+                </div>
                 <p style="flex: 1;">
-                    Un lieu de formation des artistes autour de la musique de la fin du 18e au début du 20e siècle.
+                    Un lieu de formation des artistes autour de la musique de la fin du XVIIIe au début du XXe siècle.
                     Un lieu d'étude pour d'autres disciplines en relation avec la musique.
                 </p>
                 <a style="display: flex;justify-content:center;" href="home_info.html#homeInfoMusic">
@@ -134,9 +140,12 @@
                 </a>
             </div>
             <div style="display: flex;flex-direction: column; justify-content: space-between; width: 230px; background-color: white; padding: 15px; height: 400px;">
-                <h4 style="margin-bottom: 0; flex: 0 80px;">
-                    Recherche scientifique
-                </h4>
+                <div style="display: flex; flex: 0 80px;justify-content:space-around;padding: 2px;">
+                    <img style="margin-right:20px;" alt="" height=35 src="https://dartagnans.fr/heart-research.svg"/>
+                    <h4 style="margin-bottom: 0;">
+                        Recherche scientifique
+                    </h4>
+                </div>
                 <p style="flex: 1;">
                     Un lieu de recherche sur la musique et sur les domaines en relation avec celle-ci :
                     littérature, neurologie, orthophonie, autisme...
@@ -148,13 +157,16 @@
                 </a>
             </div>
             <div style="display: flex;flex-direction: column; justify-content: space-between; width: 230px; background-color: white; padding: 15px; height: 400px;">
-                <h4 style="margin-bottom: 0; flex: 0 80px;">
-                    Culture & tourisme
-                </h4>
+                <div style="display: flex; flex: 0 80px;justify-content:space-around;padding: 2px;">
+                    <img style="margin-right:20px;" alt="" height=35 src="https://dartagnans.fr/location-pointer.svg"/>
+                    <h4 style="margin-bottom: 0;">
+                        Culture & tourisme
+                    </h4>
+                </div>
                 <p style="flex: 1;">
-                    A Bougival, les grands esprits et créateurs de génie ont puisé leurs inspiration.
-                    Leurs présence est ajourd'hui symbolisé par la maison de Georges Bizet, le Domaine des Frênes
-                    et la coline des impresionistes.
+                    A Bougival, les grands esprits et créateurs de génie ont puisé leurs inspirations.
+                    Leur présence est ajourd'hui symbolisée par la maison de Georges Bizet, le Domaine des Frênes
+                    et la Colline des impressionnistes.
                 </p>
                 <a style="display: flex;justify-content:center;" href="home_info.html#homeInfoResearch">
                     <button style="background: white; color: black; border: black 1px solid;">
